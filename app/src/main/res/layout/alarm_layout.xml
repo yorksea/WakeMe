@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+            <Switch
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text=""
+                android:clickable="false"
+                android:id="@+id/alarmActiveList"
+                android:checked="false"
+                android:textAlignment="inherit"
+                android:textStyle="bold"
+
+             />
+        <!--filler-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+            <TextView
+                android:id="@+id/AlarmTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:layout_marginRight="10dp"
+                android:text="Alarm Date and Time"
+                android:textSize="18sp"
+                android:layout_gravity="fill_horizontal"
+         />
+        <!-- filler-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DELETE"
+                android:textSize="11dp"
+                android:id="@+id/removeAlarm"
+                android:background="@color/colorPrimaryLight"
+                android:layout_alignParentRight="true"
+                android:width="50dp"
+                android:minHeight="15dp"
+                android:minWidth="5dp"
+                android:padding ="4dp"
+                android:layout_gravity="end"
+                />
+
+
+
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            >
+
+
+
+
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trigger Heat"
+                android:clickable="false"
+                android:id="@+id/triggerHeatBox" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trigger Lights"
+                android:clickable="false"
+                android:id="@+id/triggerLightsBox" />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

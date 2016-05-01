@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.amberyork.wakeme">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SleepSessionActivity"
+            android:label="@string/title_activity_sleep_session"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.MainActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AlarmListActivity"
+            android:label="@string/title_activity_alarm_list"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AlarmEditActivity"
+            android:label="@string/title_activity_alarm_edit"
+            android:parentActivityName=".AlarmListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.AlarmListActivity" />
+        </activity>
+        <activity
+            android:name=".AlarmNewActivity"
+            android:label="@string/title_alarm_new"
+            android:parentActivityName=".AlarmListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.AlarmListActivity" />
+        </activity>
+        <activity
+            android:name=".MotionDisplayActivity"
+            android:label="@string/title_activity_motion_display"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AlarmTriggerActivity"
+            android:label="@string/title_activity_alarm_trigger"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.MainActivity" />
+        </activity>
+
+        <service
+            android:name=".MotionService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".MainActivity$MyReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.amberyork.wakeme.CUSTOM_INTENT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".AlarmService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".AlarmSound"
+            android:label="@string/title_activity_alarm_sound"
+            android:parentActivityName=".AlarmListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.AlarmListActivity" />
+        </activity>
+
+    </application>
+
+</manifest>

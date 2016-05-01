@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|top"
+    tools:context="com.amberyork.wakeme.MenuFragment">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home"
+        android:id="@+id/home_but"
+        android:onClick="goToMainActivity"
+        android:theme="@style/AppTheme.AppBarOverlay" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alarm_list"
+        android:id="@+id/alarm_list_but"
+        android:onClick="goToAlarmListActivity"
+        android:theme="@style/AppTheme.AppBarOverlay" />
+<!--
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sleep_session"
+        android:id="@+id/sleep_session_but"
+        android:onClick="goToSleepSessionActivity"
+        android:theme="@style/AppTheme.AppBarOverlay" />
+        -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Triggers"
+        android:id="@+id/trigger_test_but"
+        android:onClick="goToTriggerTest"
+        android:theme="@style/AppTheme.AppBarOverlay" />
+</LinearLayout>
+

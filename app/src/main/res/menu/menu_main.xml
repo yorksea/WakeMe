@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.amberyork.wakeme.MainActivity">
+
+    <item
+        android:id="@+id/action_motion_display"
+        android:orderInCategory="101"
+        android:title="@string/action_motion_display"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_alarm_trigger"
+        android:orderInCategory="101"
+        android:title="@string/action_alarm_trigger"
+        app:showAsAction="never" />
+
+</menu>
