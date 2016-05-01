@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class DBHelper  extends SQLiteOpenHelper {
 
     // DB INFO: VERSION/NAME,ETC
-    public static final int DATABASE_VERSION = 7;
+    public static final int DATABASE_VERSION = 8;
     public static final String DATABASE_NAME = "wakeMe";
 
     // Table Names

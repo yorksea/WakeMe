@@ -8,7 +8,6 @@ import android.util.Log;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -48,13 +47,18 @@ public class AlarmServiceManager {
             //alarmMs is when the alarms service is set to in ms
             alarmMs = mDate.getTime();
 
+            //if smart devices enabled for the alarm start alarm 5 seconds before desired time so they go before alarm
+            if (alarm.getTrigger_lights() == 1 || alarm.getTrigger_heat() ==1 ){
+                alarmMs = alarmMs - 5000;
+            }
+
             //don't add the alarm if alarmMs already over
 
             //get current time
-            Calendar c = Calendar.getInstance();
-            int currentMs = c.get(Calendar.MILLISECOND);
+            long currentTime = System.currentTimeMillis();
 
-            if (alarmMs > currentMs) {//see if alarm time already happened, if not, add new alarm
+            Log.d("AlarmServiceManager","alarmMs: "+alarmMs + " currentTime: "+currentTime);
+            if (alarmMs > currentTime) {//see if alarm time already happened, if not, add new alarm
 
                 //Alarm service setup
                 Intent myIntent = new Intent(context, AlarmService.class);

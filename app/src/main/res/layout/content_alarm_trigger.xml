@@ -72,7 +72,7 @@
         android:width="255dp"
         android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true"
-        android:text="change me" />
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,5 +83,13 @@
         android:layout_below="@+id/but_heat_wakeup"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="94dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Maker Key"
+        android:id="@+id/maker_key_but"
+        android:layout_below="@+id/maker_key_text"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

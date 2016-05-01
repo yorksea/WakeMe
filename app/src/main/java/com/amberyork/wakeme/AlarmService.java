@@ -112,17 +112,18 @@ public class AlarmService extends Service {
 
             }
 
+            //sleep 10 seconds before alarm sounds so the heat and light have a head start on getting you up
+
+            if (alarm.getTrigger_heat() == 1 || alarm.getTrigger_lights() == 1) {
+                //delay alarm sound and activity if heats or lights to give yourself time to wake up from heat or lights
+                SystemClock.sleep(5000);
+            }
+
             //now go to AlarmSound to play sound
             Intent i= new Intent (getApplicationContext(), AlarmSound.class);
             i.putExtra("Time",aTime);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            //sleep 10 seconds before alarm sounds so the heat and light have a head start on getting you up
-
-           if (alarm.getTrigger_heat() !=0 || alarm.getTrigger_lights() !=0) {
-               //delay alarm sound and activity if heats or lights to give yourself time to wake up from heat or lights
-               SystemClock.sleep(5000);
-           }
 
             startActivity(i);
 

@@ -26,12 +26,21 @@ public class AlarmTriggerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         SharedPreferences userDetails = getApplicationContext().getSharedPreferences("IFTTT", MODE_PRIVATE);
+        maker_key = userDetails.getString("maker_key", "");
 
-        //update key if changed
-        String maker_key = userDetails.getString("maker_key", "");
-        EditText tvMakerKey = (EditText) findViewById(R.id.maker_key_text);
-        tvMakerKey.setText(maker_key);
+        EditText edit_text = (EditText) findViewById(R.id.maker_key_text);
+        edit_text.setText("*************");
 
+        //set click for save key button to actually save the key
+        Button button = (Button) findViewById(R.id.maker_key_but);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                saveMakerKey();
+            }
+        });
     }
     //--------------------------TESTING POST----------------------------
 
@@ -45,9 +54,6 @@ public class AlarmTriggerActivity extends AppCompatActivity {
         //display which button pressed
         Log.d(TAG, "Button pressed: " + b.getText().toString());
 
-        EditText edit_text = (EditText) findViewById(R.id.maker_key_text);
-        CharSequence edit_text_value = edit_text.getText();
-        String maker_key =edit_text_value.toString();
         //Log.d(TAG, "Key: " +maker_key);
         //don't know why I couldn't just do this
         //String maker_key =(EditText)findViewById(R.id.maker_key_text).getText().toString();
@@ -63,19 +69,6 @@ public class AlarmTriggerActivity extends AppCompatActivity {
             Log.d(TAG, idString);
             trigger = idString.replace("but_","");
 
-            SharedPreferences userDetails = getApplicationContext().getSharedPreferences("IFTTT", MODE_PRIVATE);
-            SharedPreferences.Editor edit = userDetails.edit();
-
-            //update key if changed
-            String check_maker_key = userDetails.getString("maker_key", "");
-            if (check_maker_key != maker_key) {
-                edit.clear();
-                edit.putString("maker_key", maker_key);
-                edit.commit();
-            }
-
-
-
             //got trigger now instantiate and send off post with trigger
             new PostClient().execute(trigger,maker_key);
             toast("Triggered "+trigger);
@@ -89,5 +82,20 @@ public class AlarmTriggerActivity extends AppCompatActivity {
     private void toast(String aToast){
         Toast.makeText(getApplicationContext(), aToast, Toast.LENGTH_LONG).show();
     }
+
+
+    private void saveMakerKey(){
+        EditText edit_text = (EditText) findViewById(R.id.maker_key_text);
+        CharSequence edit_text_value = edit_text.getText();
+        maker_key = edit_text_value.toString();
+
+        SharedPreferences userDetails = getApplicationContext().getSharedPreferences("IFTTT", MODE_PRIVATE);
+        SharedPreferences.Editor edit = userDetails.edit();
+
+        edit.putString("maker_key", maker_key);
+        edit.commit();
+        Log.d("TEST","committed key change");
+        }
+
 
 }//AlarmTriggerActivity
