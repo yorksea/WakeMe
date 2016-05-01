@@ -54,8 +54,6 @@ public class AlarmServiceManager {
             Calendar c = Calendar.getInstance();
             int currentMs = c.get(Calendar.MILLISECOND);
 
-
-
             if (alarmMs > currentMs) {//see if alarm time already happened, if not, add new alarm
 
                 //Alarm service setup
